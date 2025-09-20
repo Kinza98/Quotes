@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/output.css" />
+    <style type="text/tailwindcss">
+      @custom-variant hover (&:hover);
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        20%,
+        60% {
+          transform: translateX(-3px);
+        }
+        40%,
+        80% {
+          transform: translateX(3px);
+        }
+      }
+      @keyframes wiggle {
+        0%,
+        100% {
+          transform: rotate(-3deg);
+        }
+        50% {
+          transform: rotate(3deg);
+        }
+      }
+      @keyframes spin-slow {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Animation classes */
+      .animate-shake {
+        animation: shake 0.5s ease-in-out infinite;
+      }
+      .animate-wiggle {
+        animation: wiggle 1s ease-in-out infinite;
+      }
+      .animate-spin-slow {
+        animation: spin-slow 4s linear infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <section
+      id="quoteHome"
+      data-mood="normal"
+      class="group w-screen min-h-screen m-0 p-6 flex text-center flex-col gap-6 justify-center bg-gradient-to-r data-[mood='normal']:from-green-50 data-[mood='normal']:to-green-100 data-[mood='happy']:from-yellow-50 data-[mood='happy']:to-yellow-100 data-[mood='motivated']:from-teal-100 data-[mood='motivated']:to-teal-200 data-[mood='inspired']:from-orange-100 data-[mood='inspired']:to-orange-200 data-[mood='resilient']:from-green-200 data-[mood='resilient']:to-green-300 data-[mood='hopeful']:from-purple-100 data-[mood='hopeful']:to-purple-200 data-[mood='brave']:from-red-100 data-[mood='brave']:to-red-200 data-[mood='calm']:from-blue-100 data-[mood='calm']:to-blue-200 data-[mood='confident']:from-yellow-100 data-[mood='confident']:to-yellow-200 data-[mood='adventurous']:from-orange-200 data-[mood='adventurous']:to-orange-300 data-[mood='practical']:from-gray-200 data-[mood='practical']:to-gray-300 data-[mood='sad']:from-blue-200 data-[mood='sad']:to-blue-300 data-[mood='angry']:from-red-200 data-[mood='angry']:to-red-300 data-[mood='anxious']:from-gray-100 data-[mood='anxious']:to-gray-200"
+    >
+      <div id="quote-section" class="transition-all">
+        <!-- Quote -->
+        <div
+          id="quote"
+          class="text-4xl font-semibold text-green-600 text-center transition-all duration-100 group-data-[mood='normal']:text-green-600 group-data-[mood='happy']:text-yellow-700 group-data-[mood='motivated']:text-teal-700 group-data-[mood='inspired']:text-orange-700 group-data-[mood='resilient']:text-green-800 group-data-[mood='hopeful']:text-purple-700 group-data-[mood='brave']:text-red-700 group-data-[mood='calm']:text-blue-700 group-data-[mood='confident']:text-yellow-800 group-data-[mood='adventurous']:text-orange-800 group-data-[mood='practical']:text-gray-700 group-data-[mood='sad']:text-blue-800 group-data-[mood='angry']:text-red-800 group-data-[mood='anxious']:text-gray-700"
+        ></div>
+
+        <!-- Author -->
+        <div
+          id="author"
+          class="text-center mt-4 text-green-600 transition-all duration-100 group-data-[mood='normal']:text-green-600 group-data-[mood='happy']:text-yellow-700 group-data-[mood='motivated']:text-teal-700 group-data-[mood='inspired']:text-orange-700 group-data-[mood='resilient']:text-green-800 group-data-[mood='hopeful']:text-purple-700 group-data-[mood='brave']:text-red-700 group-data-[mood='calm']:text-blue-700 group-data-[mood='confident']:text-yellow-800 group-data-[mood='adventurous']:text-orange-800 group-data-[mood='practical']:text-gray-700 group-data-[mood='sad']:text-blue-800 group-data-[mood='angry']:text-red-800 group-data-[mood='anxious']:text-gray-700"
+        ></div>
+      </div>
+      <button
+        id="changeQuote"
+        class="mx-auto border-2 py-2 px-6 text-white transition-all duration-200 hover:cursor-pointer bg-[#e67e22] border-[#e67e22] hover:bg-[#cc6c1b] hover:text-white group-data-[mood='normal']:bg-[#e67e22] group-data-[mood='normal']:border-[#e67e22] group-data-[mood='normal']:hover:bg-[#cc6c1b] group-data-[mood='happy']:bg-yellow-500 group-data-[mood='happy']:border-yellow-600 group-data-[mood='happy']:hover:bg-yellow-600 group-data-[mood='motivated']:bg-teal-500 group-data-[mood='motivated']:border-teal-600 group-data-[mood='motivated']:hover:bg-teal-600 group-data-[mood='inspired']:bg-orange-500 group-data-[mood='inspired']:border-orange-600 group-data-[mood='inspired']:hover:bg-orange-600 group-data-[mood='resilient']:bg-green-600 group-data-[mood='resilient']:border-green-700 group-data-[mood='resilient']:hover:bg-green-700 group-data-[mood='hopeful']:bg-purple-500 group-data-[mood='hopeful']:border-purple-600 group-data-[mood='hopeful']:hover:bg-purple-600 group-data-[mood='brave']:bg-red-500 group-data-[mood='brave']:border-red-600 group-data-[mood='brave']:hover:bg-red-600 group-data-[mood='calm']:bg-blue-500 group-data-[mood='calm']:border-blue-600 group-data-[mood='calm']:hover:bg-blue-600 group-data-[mood='confident']:bg-yellow-400 group-data-[mood='confident']:border-yellow-500 group-data-[mood='confident']:hover:bg-yellow-500 group-data-[mood='adventurous']:bg-orange-400 group-data-[mood='adventurous']:border-orange-500 group-data-[mood='adventurous']:hover:bg-orange-500 group-data-[mood='practical']:bg-gray-500 group-data-[mood='practical']:border-gray-600 group-data-[mood='practical']:hover:bg-gray-600 group-data-[mood='sad']:bg-blue-400 group-data-[mood='sad']:border-blue-500 group-data-[mood='sad']:hover:bg-blue-500 group-data-[mood='angry']:bg-red-400 group-data-[mood='angry']:border-red-500 group-data-[mood='angry']:hover:bg-red-500 group-data-[mood='anxious']:bg-gray-300 group-data-[mood='anxious']:border-gray-400 group-data-[mood='anxious']:hover:bg-gray-400"
+      >
+        Another Quote
+      </button>
+
+      <section
+        id="moods"
+        class="mt-10 flex flex-row gap-6 justify-center flex-wrap"
+      >
+        <!-- Happy -->
+        <div
+          role="button"
+          onclick="changeMood('happy')"
+          class="w-32 bg-[#FFE4B5] flex flex-col items-center p-4 gap-2 rounded-md text-yellow-600 font-medium border-2 border-yellow-600 hover:bg-[#FFD480] hover:cursor-pointer"
+        >
+          <span>Happy</span>
+          <span class="text-2xl animate-bounce">😊</span>
+        </div>
+
+        <!-- Motivated -->
+        <div
+          role="button"
+          onclick="changeMood('motivated')"
+          class="w-32 bg-[#B2DFDB] flex flex-col items-center p-4 gap-2 rounded-md text-teal-700 font-medium border-2 border-teal-700 hover:bg-[#9FDAD6] hover:cursor-pointer"
+        >
+          <span>Motivated</span>
+          <span class="text-2xl animate-bounce">💪</span>
+        </div>
+
+        <!-- Inspired -->
+        <!-- <div
+          role="button"
+          onclick="changeMood('inspired')"
+          class="w-32 bg-[#FFDAB9] flex flex-col items-center p-4 gap-2 rounded-md text-orange-600 font-medium border-2 border-orange-600 hover:bg-[#FFC79A] hover:cursor-pointer"
+        >
+          <span>Inspired</span>
+          <span class="text-2xl animate-pulse">✨</span>
+        </div> -->
+
+        <!-- Resilient -->
+        <!-- <div
+          role="button"
+          onclick="changeMood('resilient')"
+          class="w-32 bg-[#C8E6C9] flex flex-col items-center p-4 gap-2 rounded-md text-green-700 font-medium border-2 border-green-700 hover:bg-[#B0D9B2] hover:cursor-pointer"
+        >
+          <span>Resilient</span>
+          <span class="text-2xl animate-bounce">🌱</span>
+        </div> -->
+
+        <!-- Hopeful -->
+        <!-- <div
+          role="button"
+          onclick="changeMood('hopeful')"
+          class="w-32 bg-[#E1BEE7] flex flex-col items-center p-4 gap-2 rounded-md text-purple-700 font-medium border-2 border-purple-700 hover:bg-[#D7A9E0] hover:cursor-pointer"
+        >
+          <span>Hopeful</span>
+          <span class="text-2xl animate-pulse">🌈</span>
+        </div> -->
+
+        <!-- Brave -->
+        <!-- <div
+          role="button"
+          onclick="changeMood('brave')"
+          class="w-32 bg-[#FFCDD2] flex flex-col items-center p-4 gap-2 rounded-md text-red-700 font-medium border-2 border-red-700 hover:bg-[#FFAFAF] hover:cursor-pointer"
+        >
+          <span>Brave</span>
+          <span class="text-2xl animate-bounce">🦁</span>
+        </div> -->
+
+        <!-- Calm -->
+        <!-- <div
+          role="button"
+          onclick="changeMood('calm')"
+          class="w-32 bg-[#B3E5FC] flex flex-col items-center p-4 gap-2 rounded-md text-blue-700 font-medium border-2 border-blue-700 hover:bg-[#90D8FB] hover:cursor-pointer"
+        >
+          <span>Calm</span>
+          <span class="text-2xl animate-spin-slow">🌊</span>
+        </div> -->
+
+        <!-- Confident -->
+        <div
+          role="button"
+          onclick="changeMood('confident')"
+          class="w-32 bg-[#FFF9C4] flex flex-col items-center p-4 gap-2 rounded-md text-yellow-700 font-medium border-2 border-yellow-700 hover:bg-[#FFF280] hover:cursor-pointer"
+        >
+          <span>Confident</span>
+          <span class="text-2xl animate-bounce">🏆</span>
+        </div>
+
+        <!-- Adventurous -->
+        <!-- <div
+          role="button"
+          onclick="changeMood('adventurous')"
+          class="w-32 bg-[#FFE0B2] flex flex-col items-center p-4 gap-2 rounded-md text-orange-700 font-medium border-2 border-orange-700 hover:bg-[#FFC68A] hover:cursor-pointer"
+        >
+          <span>Adventurous</span>
+          <span class="text-2xl animate-bounce">🗺️</span>
+        </div> -->
+
+        <!-- Practical -->
+        <!-- <div
+          role="button"
+          onclick="changeMood('practical')"
+          class="w-32 bg-[#D7CCC8] flex flex-col items-center p-4 gap-2 rounded-md text-gray-700 font-medium border-2 border-gray-700 hover:bg-[#C1B6B1] hover:cursor-pointer"
+        >
+          <span>Practical</span>
+          <span class="text-2xl animate-pulse">🛠️</span>
+        </div> -->
+
+        <!-- Sad -->
+        <div
+          role="button"
+          onclick="changeMood('sad')"
+          class="w-32 bg-[#B0BEC5] flex flex-col items-center p-4 gap-2 rounded-md text-blue-700 font-medium border-2 border-blue-700 hover:bg-[#98A9B5] hover:cursor-pointer"
+        >
+          <span>Sad</span>
+          <span class="text-2xl animate-pulse">😢</span>
+        </div>
+
+        <!-- Angry -->
+        <div
+          role="button"
+          onclick="changeMood('angry')"
+          class="w-32 bg-[#FFAB91] flex flex-col items-center p-4 gap-2 rounded-md text-red-700 font-medium border-2 border-red-700 hover:bg-[#FF8C66] hover:cursor-pointer"
+        >
+          <span>Angry</span>
+          <span class="text-2xl animate-shake">😡</span>
+        </div>
+
+        <!-- Anxious -->
+        <div
+          role="button"
+          onclick="changeMood('anxious')"
+          class="w-32 bg-[#CFD8DC] flex flex-col items-center p-4 gap-2 rounded-md text-gray-700 font-medium border-2 border-gray-700 hover:bg-[#B8C1C6] hover:cursor-pointer"
+        >
+          <span>Anxious</span>
+          <span class="text-2xl animate-wiggle">😰</span>
+        </div>
+      </section>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

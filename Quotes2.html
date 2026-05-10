@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ThoughtBloom</title>
+    <title>Document</title>
     <link rel="stylesheet" href="dist/output.css" />
     <style type="text/tailwindcss">
       @custom-variant hover (&:hover);
@@ -49,13 +49,6 @@
       .animate-spin-slow {
         animation: spin-slow 4s linear infinite;
       }
-      .animate-spin-slow,
-      .animate-wiggle,
-      .animate-shake {
-        @variant motion-reduce {
-          animation: none;
-        }
-      }
     </style>
   </head>
   <body>
@@ -86,33 +79,91 @@
 
       <section
         id="moods"
-        class="mt-10 flex flex-row gap-6 justify-center flex-wrap"
+        class="mt-10 flex flex-row justify-center fixed top-0 left-0 right-0"
       >
         <!-- Happy -->
         <div
           role="button"
           onclick="changeMood('happy')"
-          class="w-32 bg-[#FFE4B5] flex flex-col items-center p-4 gap-2 rounded-md text-yellow-600 font-medium border-2 border-yellow-600 hover:bg-[#FFD480] hover:cursor-pointer"
+          class="group/mood relative w-32 flex flex-col items-center p-0 rounded-md text-yellow-600 font-medium hover:cursor-pointer"
         >
-          <span>Happy</span>
-          <span class="text-2xl motion-safe:animate-bounce">😊</span>
+          <span
+            class="group-hover/mood:visible absolute top-16 invisible bg-[#FFE4B5] border-yellow-600 hover:bg-[#FFD480] inline-block px-2 border-2"
+            >Happy</span
+          >
+          <span class="text-2xl ">😊</span>
         </div>
 
         <!-- Motivated -->
         <div
           role="button"
           onclick="changeMood('motivated')"
-          class="w-32 bg-[#B2DFDB] flex flex-col items-center p-4 gap-2 rounded-md text-teal-700 font-medium border-2 border-teal-700 hover:bg-[#9FDAD6] hover:cursor-pointer"
+          class="group/mood w-32 flex flex-col items-center p-0 rounded-md text-teal-700 font-medium hover:cursor-pointer"
         >
-          <span>Motivated</span>
-          <span class="text-2xl animate-shake">💪</span>
+          <span
+            class="group-hover/mood:visible absolute top-16 invisible px-2 bg-[#B2DFDB] border-2 border-teal-700 hover:bg-[#9FDAD6]"
+            >Motivated</span
+          >
+          <span class="text-2xl ">💪</span>
         </div>
+
+        <!-- Motivated -->
+        <div
+          role="button"
+          onclick="changeMood('confident')"
+          class="group/mood w-32 flex flex-col items-center p-0 rounded-md text-yellow-700 font-medium hover:cursor-pointer"
+        >
+          <span
+            class="group-hover/mood:visible absolute top-16 invisible px-2 bg-[#FFF9C4] border-2 border-yellow-700 hover:bg-[#FFF280]"
+            >Confident</span
+          >
+          <span class="text-2xl ">🏆</span>
+        </div>
+        <!-- Sad -->
+        <div
+          role="button"
+          onclick="changeMood('sad')"
+          class="group/mood w-32 flex flex-col items-center p-0 rounded-md text-blue-700 font-medium hover:cursor-pointer"
+        >
+          <span
+            class="group-hover/mood:visible absolute top-16 invisible px-2 bg-[#B0BEC5] border-2 border-blue-700 hover:bg-[#98A9B5]"
+            >Sad</span
+          >
+          <span class="text-2xl ">😢</span>
+        </div>
+
+        <!-- Angry -->
+        <div
+          role="button"
+          onclick="changeMood('angry')"
+          class="group/mood w-32 flex flex-col items-center p-0 rounded-md text-red-00 font-medium hover:cursor-pointer"
+        >
+          <span
+            class="group-hover/mood:visible absolute top-16 invisible px-2 bg-[#FFAB91] border-2 border-red-700 hover:bg-[#FFF280]"
+            >Angry</span
+          >
+          <span class="text-2xl ">😡</span>
+        </div>
+
+        <!-- Anxious -->
+        <div
+          role="button"
+          onclick="changeMood('anxious')"
+          class="group/mood w-32 flex flex-col items-center p-0 rounded-md text-gray-700 font-medium  hover:cursor-pointer"
+        >
+          <span
+            class="group-hover/mood:visible absolute top-16 invisible px-2 bg-[#CFD8DC] border-2 border-gray-700 hover:bg-[#FFF280]"
+            >Anxious</span
+          >
+          <span class="text-2xl "">😰</span>
+        </div>
+        <!-- <class="w-32 bg-[#FFF9C4] flex flex-col items-center p-0 rounded-md text-yellow-700 font-medium border-2 border-yellow-700 hover:bg-[#FFF280] hover:cursor-pointer" -->
 
         <!-- Inspired -->
         <!-- <div
           role="button"
           onclick="changeMood('inspired')"
-          class="w-32 bg-[#FFDAB9] flex flex-col items-center p-4 gap-2 rounded-md text-orange-600 font-medium border-2 border-orange-600 hover:bg-[#FFC79A] hover:cursor-pointer"
+          class="w-32 bg-[#FFDAB9] flex flex-col items-center p-0 rounded-md text-orange-600 font-medium border-2 border-orange-600 hover:bg-[#FFC79A] hover:cursor-pointer"
         >
           <span>Inspired</span>
           <span class="text-2xl motion-safe:animate-pulse">✨</span>
@@ -122,111 +173,64 @@
         <!-- <div
           role="button"
           onclick="changeMood('resilient')"
-          class="w-32 bg-[#C8E6C9] flex flex-col items-center p-4 gap-2 rounded-md text-green-700 font-medium border-2 border-green-700 hover:bg-[#B0D9B2] hover:cursor-pointer"
+          class="w-32 bg-[#C8E6C9] flex flex-col items-center p-0 rounded-md text-green-700 font-medium border-2 border-green-700 hover:bg-[#B0D9B2] hover:cursor-pointer"
         >
           <span>Resilient</span>
-          <span class="text-2xl animate-bounce">🌱</span>
+          <span class="text-2xl motion-safe:animate-bounce">🌱</span>
         </div> -->
 
         <!-- Hopeful -->
         <!-- <div
           role="button"
           onclick="changeMood('hopeful')"
-          class="w-32 bg-[#E1BEE7] flex flex-col items-center p-4 gap-2 rounded-md text-purple-700 font-medium border-2 border-purple-700 hover:bg-[#D7A9E0] hover:cursor-pointer"
+          class="w-32 bg-[#E1BEE7] flex flex-col items-center p-0 rounded-md text-purple-700 font-medium border-2 border-purple-700 hover:bg-[#D7A9E0] hover:cursor-pointer"
         >
           <span>Hopeful</span>
-          <span class="text-2xl animate-pulse">🌈</span>
+          <span class="text-2xl motion-safe:animate-pulse">🌈</span>
         </div> -->
 
         <!-- Brave -->
         <!-- <div
           role="button"
           onclick="changeMood('brave')"
-          class="w-32 bg-[#FFCDD2] flex flex-col items-center p-4 gap-2 rounded-md text-red-700 font-medium border-2 border-red-700 hover:bg-[#FFAFAF] hover:cursor-pointer"
+          class="w-32 bg-[#FFCDD2] flex flex-col items-center p-0 rounded-md text-red-700 font-medium border-2 border-red-700 hover:bg-[#FFAFAF] hover:cursor-pointer"
         >
           <span>Brave</span>
-          <span class="text-2xl animate-bounce">🦁</span>
+          <span class="text-2xl motion-safe:animate-bounce">🦁</span>
         </div> -->
 
         <!-- Calm -->
         <!-- <div
           role="button"
           onclick="changeMood('calm')"
-          class="w-32 bg-[#B3E5FC] flex flex-col items-center p-4 gap-2 rounded-md text-blue-700 font-medium border-2 border-blue-700 hover:bg-[#90D8FB] hover:cursor-pointer"
+          class="w-32 bg-[#B3E5FC] flex flex-col items-center p-0 rounded-md text-blue-700 font-medium border-2 border-blue-700 hover:bg-[#90D8FB] hover:cursor-pointer"
         >
           <span>Calm</span>
-          <span class="text-2xl animate-spin-slow">🌊</span>
+          <span class="text-2xl motion-safe:animate-spin-slow">🌊</span>
         </div> -->
 
         <!-- Confident -->
-        <div
-          role="button"
-          onclick="changeMood('confident')"
-          class="w-32 bg-[#FFF9C4] flex flex-col items-center p-4 gap-2 rounded-md text-yellow-700 font-medium border-2 border-yellow-700 hover:bg-[#FFF280] hover:cursor-pointer"
-        >
-          <span>Confident</span>
-          <span class="text-2xl motion-safe:animate-bounce">🏆</span>
-        </div>
-
         <!-- Adventurous -->
         <!-- <div
           role="button"
           onclick="changeMood('adventurous')"
-          class="w-32 bg-[#FFE0B2] flex flex-col items-center p-4 gap-2 rounded-md text-orange-700 font-medium border-2 border-orange-700 hover:bg-[#FFC68A] hover:cursor-pointer"
+          class="w-32 bg-[#FFE0B2] flex flex-col items-center p-0 rounded-md text-orange-700 font-medium border-2 border-orange-700 hover:bg-[#FFC68A] hover:cursor-pointer"
         >
           <span>Adventurous</span>
-          <span class="text-2xl animate-bounce">🗺️</span>
+          <span class="text-2xl motion-safe:animate-bounce">🗺️</span>
         </div> -->
 
         <!-- Practical -->
         <!-- <div
           role="button"
           onclick="changeMood('practical')"
-          class="w-32 bg-[#D7CCC8] flex flex-col items-center p-4 gap-2 rounded-md text-gray-700 font-medium border-2 border-gray-700 hover:bg-[#C1B6B1] hover:cursor-pointer"
+          class="w-32 bg-[#D7CCC8] flex flex-col items-center p-0 rounded-md text-gray-700 font-medium border-2 border-gray-700 hover:bg-[#C1B6B1] hover:cursor-pointer"
         >
           <span>Practical</span>
-          <span class="text-2xl animate-pulse">🛠️</span>
+          <span class="text-2xl motion-safe:animate-pulse">🛠️</span>
         </div> -->
-
-        <!-- Sad -->
-        <div
-          role="button"
-          onclick="changeMood('sad')"
-          class="w-32 bg-[#B0BEC5] flex flex-col items-center p-4 gap-2 rounded-md text-blue-700 font-medium border-2 border-blue-700 hover:bg-[#98A9B5] hover:cursor-pointer"
-        >
-          <span>Sad</span>
-          <span class="text-2xl animate-pulse">😢</span>
-        </div>
-
-        <!-- Angry -->
-        <div
-          role="button"
-          onclick="changeMood('angry')"
-          class="w-32 bg-[#FFAB91] flex flex-col items-center p-4 gap-2 rounded-md text-red-700 font-medium border-2 border-red-700 hover:bg-[#FF8C66] hover:cursor-pointer"
-        >
-          <span>Angry</span>
-          <span class="text-2xl animate-shake">😡</span>
-        </div>
-
-        <!-- Anxious -->
-        <div
-          role="button"
-          onclick="changeMood('anxious')"
-          class="w-32 bg-[#CFD8DC] flex flex-col items-center p-4 gap-2 rounded-md text-gray-700 font-medium border-2 border-gray-700 hover:bg-[#B8C1C6] hover:cursor-pointer"
-        >
-          <span>Anxious</span>
-          <span class="text-2xl animate-wiggle">😰</span>
-        </div>
       </section>
     </section>
-    <div
-      id="loader"
-      class="fixed inset-0 flex items-center justify-center z-50 bg-gradient-to-r from-green-50 to-teal-100"
-    >
-      <div
-        class="w-14 h-14 border-4 border-green-300 border-t-teal-500 rounded-full animate-spin"
-      ></div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="script.js"></script>
   </body>

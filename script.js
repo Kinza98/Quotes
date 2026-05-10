@@ -1,3 +1,10 @@
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  loader.classList.add('opacity-0');
+  setTimeout(() => {
+    loader.style.display = 'none';
+  }, 300);
+});
 const motivationalQuotes = [
   {
     quote: 'Life is really simple, but we insist on making it complicated.',

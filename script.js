@@ -1,9 +1,15 @@
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const loader = document.getElementById('loader');
-  loader.classList.add('opacity-0');
-  setTimeout(() => {
-    loader.style.display = 'none';
-  }, 300);
+
+  if (loader) {
+    window.addEventListener('load', () => {
+      loader.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 500);
+    });
+  }
 });
 const motivationalQuotes = [
   {
